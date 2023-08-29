@@ -1,14 +1,36 @@
 import mongoose from 'mongoose'
-import { v4 as uuid } from 'uuid'
+
 
 const userSchema = new mongoose.Schema({
 	_id:{
 		type: String,
-		default: uuid()
+
 	},
 	name: String,
 	email: String,
 	password: String,
 })
 const User = mongoose.model('User', userSchema)
-export { User }
+
+const bookSchema = new mongoose.Schema({
+	_id:{
+		type: String,
+
+	},
+	name: String,
+	author: String,
+	company: String,
+	read: Boolean,
+	dateRead: Date,
+	description: String,
+	rate: Number,
+	user_id: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+		require: true,
+	}
+})
+
+const Books = mongoose.model('Books', bookSchema)
+
+export { User, Books }
