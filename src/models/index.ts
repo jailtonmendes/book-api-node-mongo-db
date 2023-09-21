@@ -2,10 +2,6 @@ import mongoose from 'mongoose'
 
 
 const userSchema = new mongoose.Schema({
-	_id:{
-		type: String,
-
-	},
 	name: String,
 	email: String,
 	password: String,
@@ -13,10 +9,6 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema)
 
 const bookSchema = new mongoose.Schema({
-	_id:{
-		type: String,
-
-	},
 	name: String,
 	author: String,
 	company: String,
